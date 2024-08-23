@@ -8,8 +8,9 @@ import (
 )
 
 const (
-	pieceHash        = crypto.SHA1
-	defaultChunkSize = 0x80000 // 16KiB
+	pieceHash = crypto.SHA1
+
+	defaultChunkSize = 0x16000 // 16KiB
 
 	// Arbitrary maximum of "metadata_size" (see https://www.bittorrent.org/beps/bep_0009.html)
 	// libtorrent-rasterbar uses 4MiB at last check. TODO: Add links to values used by other
