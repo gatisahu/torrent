@@ -2903,6 +2903,7 @@ func (t *Torrent) addWebSeed(url string, opts ...AddWebSeedsOpt) {
 	if t.haveInfo() {
 		ws.onGotInfo(t.info)
 	}
+	ws.peer.updateRequests("onSetInfo")
 	t.webSeeds[url] = &ws.peer
 }
 
