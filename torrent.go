@@ -2902,9 +2902,11 @@ func (t *Torrent) addWebSeed(url string, opts ...AddWebSeedsOpt) {
 	ws.peer.peerImpl = &ws
 	if t.haveInfo() {
 		ws.onGotInfo(t.info)
+
 	}
 	ws.peer.updateRequests("onSetInfo")
 	t.webSeeds[url] = &ws.peer
+	ws.peer.updateRequests("Torrent.addWebSeed")
 }
 
 func (t *Torrent) peerIsActive(p *Peer) (active bool) {
